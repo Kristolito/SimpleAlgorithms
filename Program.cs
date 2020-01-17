@@ -11,6 +11,9 @@ namespace SimpleAlgos
         static void Main(string[] args)
         {
             List<int> mylist = new List<int>(new int[] { 0, -2, 1, 2, 3, 5, 4, 7, 8 });
+            int[] item = new[] { 1, 5, 7 };
+
+            int[] item2 = new[] { 1, 5, 7, 9, 10, 12 };
 
 
             //call the functions with the appropriate parameters to test the functions
@@ -21,7 +24,11 @@ namespace SimpleAlgos
 
 
             //Console.WriteLine(AlgoA3("python"));
-        }      
+
+            //Console.WriteLine(AlgoA4(item));
+
+            //Console.WriteLine(AlgoA5(item2));
+        }
 
 
 
@@ -75,9 +82,43 @@ namespace SimpleAlgos
 
             return s1;
         }
-    }
 
+
+        public static int[] AlgoA4(int[] numbers)
+        {
+            // Write a C# Sharp program to check a given array of integers, length 3 and create a new array. If there is a 5 in the given array immediately followed by a 7 then set 7 to 1
+            for (var i = 0; i < numbers.Length - 1; i++)
+            {
+                if (numbers[i].Equals(5) && numbers[i + 1].Equals(7))
+                    numbers[i + 1] = 1;
+            }
+            return numbers;
+        }
+
+
+
+
+       public static int AlgoA5(int[] nums)
+        {
+            // Write a C# Sharp program to check the dif between the largest and smallest values in a list of integers
+            int small_num = 0, biggest_num = 0;
+
+            if (nums.Length > 0) small_num = biggest_num = nums[0];
+
+            for (int i = 1; i < nums.Length; i++)
+            {
+                small_num = Math.Min(small_num, nums[i]);
+                biggest_num = Math.Max(biggest_num, nums[i]);
+            }
+
+            return biggest_num - small_num;
+        }
+
+
+    }
 }
+
+
 
   
-}
+
